@@ -32,17 +32,25 @@ sudo netstat -tunlp
 
 ## Remove lfs objects / references
 
+List lfs objects
+
 ```
 git lfs ls-files
 ```
+
+Output
 
 ```
 d73e3668f0 - playbooks/files/img/digitalocean.png
 ```
 
+Tried:
+
 ```
 git lfs uninstall
 ```
+
+Output
 
 ```
 open /mnt/volume_nyc1_01/demo-site-prometheus-ansible-grafana-alertmanager-node-exporter/.git/hooks/pre-push: no such file or directory
@@ -56,6 +64,7 @@ Try to push
 git push -u origin main
 ```
 
+```
 Enumerating objects: 1081, done.
 Counting objects: 100% (1081/1081), done.
 Delta compression using up to 2 threads
@@ -71,8 +80,9 @@ remote: Try to push them with 'git lfs push --all'.
 To github.com:coding-to-music/demo-site-prometheus-ansible-grafana-alertmanager-node-exporter.git
 ! [remote rejected] main -> main (pre-receive hook declined)
 error: failed to push some refs to 'git@github.com:coding-to-music/demo-site-prometheus-ansible-grafana-alertmanager-node-exporter.git'
+```
 
-Try this suggestion:
+Tried this suggestion:
 
 https://github.com/git-lfs/git-lfs/issues/4148
 
@@ -84,6 +94,32 @@ git lfs migrate export --include="*" --everything
 migrate: override changes in your working copy? [Y/n] y
 migrate: changes in your working copy will be overridden ...
 [937fcb1b18d96fcff58e5c08ac5821bb15617e071034b555fafa5bbeb7ea662e] Object does not exist on the server: [404] Object does not exist on the server
+```
+
+I ended up removing git history completely, which is excessive
+
+```
+rm -rf .git
+```
+
+But then I was able to save to GitHub
+
+```
+git push -u origin main
+```
+
+Output
+
+```
+Enumerating objects: 45, done.
+Counting objects: 100% (45/45), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (37/37), done.
+Writing objects: 100% (45/45), 18.11 KiB | 927.00 KiB/s, done.
+Total 45 (delta 0), reused 0 (delta 0)
+To github.com:coding-to-music/demo-site-prometheus-ansible-grafana-alertmanager-node-exporter.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'origin'.
 ```
 
 # Prometheus monitoring demo site
