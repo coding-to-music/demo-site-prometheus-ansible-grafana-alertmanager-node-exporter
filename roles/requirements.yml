@@ -1,0 +1,14 @@
+---
+- name: cloudalchemy.node_exporter
+- name: cloudalchemy.snmp-exporter
+- name: cloudalchemy.blackbox-exporter
+- name: cloudalchemy.prometheus
+- name: cloudalchemy.alertmanager
+- name: cloudalchemy.grafana
+
+# EXTRAS
+- name: caddy_ansible.caddy_ansible
+- name: dev-sec.ssh-hardening
+- name: dev-sec.os-hardening
+- name: jnv.unattended-upgrades
+  version: v1.7.1

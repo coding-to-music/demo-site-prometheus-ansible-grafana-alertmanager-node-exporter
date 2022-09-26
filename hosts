@@ -1,0 +1,16 @@
+demo ansible_host=demo.do.prometheus.io ansible_user=root
+
+[prometheus]
+demo
+
+[alertmanager]
+demo
+
+[grafana]
+demo
+
+[exporters]
+demo
+
+[web]
+demo
