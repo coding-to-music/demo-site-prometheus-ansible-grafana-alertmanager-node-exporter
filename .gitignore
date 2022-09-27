@@ -2,6 +2,8 @@
 .old-gitattributes
 .gitattributes
 
+hosts
+
 *.swp
 *.swo
 *.idea
