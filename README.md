@@ -253,6 +253,12 @@ file site.yml
     - monitoring
 ```
 
+Do I need to create this file? How to set the password?
+
+```bash
+.vault-password
+```
+
 ```bash
 # Download roles
 ansible-galaxy install -r roles/requirements.yml
