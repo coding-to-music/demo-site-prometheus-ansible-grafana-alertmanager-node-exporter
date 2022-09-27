@@ -192,6 +192,8 @@ vault_grafana_password: <<INSERT_YOUR_GRAFANA_PASSWORD>>
 
 You will have to manually run `go` command to download & copy the [`random`](https://github.com/prometheus/client_golang/tree/master/examples/random) exporter binary to [`playbooks/files`](playbooks/files) directory.
 
+wget https://go.dev/dl/go1.19.1.linux-amd64.tar.gz
+
 - The binary will be downloaded at `GOPATH` location. The value of `GOPATH` can be found by running `go env|grep GOPATH` command on your system.
 
 ```
@@ -199,7 +201,57 @@ go get -u github.com/prometheus/client_golang/examples/random
 cp <GOPATH>/bin/random /path/to/demo-site/playbooks/files/
 ```
 
+### Install Go
+
+Remove any previous Go installation by deleting the /usr/local/go folder (if it exists), then extract the archive you just downloaded into /usr/local, creating a fresh Go tree in /usr/local/go:
+
+```
+sudo rm -rf /usr/local/go
+
+sudo tar -C /usr/local -xzf go1.19.1.linux-amd64.tar.gz
+```
+
+(You may need to run the command as root or through sudo).
+
+Do not untar the archive into an existing `/usr/local/go` tree. This is known to produce broken Go installations.
+
+Add `/usr/local/go/bin` to the PATH environment variable.
+You can do this by adding the following line to your `$HOME/.profile` or `/etc/profile` (for a system-wide installation):
+
+```
+export PATH=$PATH:/usr/local/go/bin
+```
+
+Note: Changes made to a profile file may not apply until the next time you log into your computer. To apply the changes immediately, just run the shell commands directly or execute them from the profile using a command such as source $HOME/.profile.
+
+Verify that you've installed Go by opening a command prompt and typing the following command:
+
+```
+go version
+```
+
+```
+go version go1.13.8 linux/amd64
+```
+
+Confirm that the command prints the installed version of Go.
+
 #### Run as usual Ansible playbook
+
+file site.yml
+
+```
+---
+- import_playbook: playbooks/00_system.yml
+  tags:
+    - system
+- import_playbook: playbooks/01_webserver.yml
+  tags:
+    - webserver
+- import_playbook: playbooks/02_monitoring.yml
+  tags:
+    - monitoring
+```
 
 ```bash
 # Download roles
