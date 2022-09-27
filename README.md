@@ -161,6 +161,14 @@ This workaround was needed to solve issue [cloudalchemy/demo-site#13](https://gi
 
 You can easily run such setup yourself without much knowledge how any part of this works. You just need to do two things:
 
+### copy example hosts and valut
+
+```
+cp group_vars/grafana/vault.example group_vars/grafana/vault
+
+cp hosts.example hosts
+```
+
 #### Change ansible inventory
 
 First of all you need to configure your inventory, ours is located in [`hosts`](hosts) file. Here you set up your target hosts by changing value of `ansible_host` variable. Also here you can exclude parts of this demo site, so if you don't need our website, you just remove this part:
