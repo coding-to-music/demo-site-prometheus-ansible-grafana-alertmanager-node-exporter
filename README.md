@@ -283,3 +283,17 @@ demo site is deployed using [Cloud Alchemy](https://github.com/cloudalchemy) ans
 [alertmanager_https]: https://alertmanager.demo.do.prometheus.io
 [grafana_http]: http://demo.do.prometheus.io:3000
 [grafana_https]: https://grafana.demo.do.prometheus.io
+
+## community.general.capabilities module – Manage Linux capabilities
+
+https://docs.ansible.com/ansible/latest/collections/community/general/capabilities_module.html
+
+Note
+
+This module is part of the community.general collection (version 5.6.0).
+
+You might already have this collection installed if you are using the ansible package. It is not included in `ansible-core`. To check whether it is installed, run `ansible-galaxy collection list`
+
+To install it, use: `ansible-galaxy collection install community.general`
+
+To use it in a playbook, specify: `community.general.capabilities`
