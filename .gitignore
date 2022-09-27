@@ -19,3 +19,4 @@ ara*
 playbooks/files/random
 playbooks/files/rules/
 playbooks/files/dashboards/
+group_vars/grafana/vault
